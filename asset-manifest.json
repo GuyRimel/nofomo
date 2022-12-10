@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/github.io/nofomo/static/css/main.073c9b0a.css",
-    "main.js": "/github.io/nofomo/static/js/main.ef3a6c55.js",
-    "static/js/787.05de1809.chunk.js": "/github.io/nofomo/static/js/787.05de1809.chunk.js",
-    "service-worker.js": "/github.io/nofomo/service-worker.js",
-    "static/media/logo.svg": "/github.io/nofomo/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
-    "index.html": "/github.io/nofomo/index.html",
-    "main.073c9b0a.css.map": "/github.io/nofomo/static/css/main.073c9b0a.css.map",
-    "main.ef3a6c55.js.map": "/github.io/nofomo/static/js/main.ef3a6c55.js.map",
-    "787.05de1809.chunk.js.map": "/github.io/nofomo/static/js/787.05de1809.chunk.js.map"
+    "main.css": "/nofomo/static/css/main.073c9b0a.css",
+    "main.js": "/nofomo/static/js/main.5b4411fd.js",
+    "static/js/787.05de1809.chunk.js": "/nofomo/static/js/787.05de1809.chunk.js",
+    "service-worker.js": "/nofomo/service-worker.js",
+    "static/media/logo.svg": "/nofomo/static/media/logo.2d27ead7c10f774c5306bcf3c257a728.svg",
+    "index.html": "/nofomo/index.html",
+    "main.073c9b0a.css.map": "/nofomo/static/css/main.073c9b0a.css.map",
+    "main.5b4411fd.js.map": "/nofomo/static/js/main.5b4411fd.js.map",
+    "787.05de1809.chunk.js.map": "/nofomo/static/js/787.05de1809.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.ef3a6c55.js"
+    "static/js/main.5b4411fd.js"
   ]
 }
