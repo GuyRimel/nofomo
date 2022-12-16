@@ -20,7 +20,7 @@ const credentials = {
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
   redirect_uris: ["https://guyrimel.github.io/nofomo"],
-  javascript_origins: ["https://guyrimel.github.io", "http://localhost:3000"]
+  javascript_origins: ["https://guyrimel.github.io", "http://localhost:3000"],
 };
 const { client_secret, client_id, redirect_uris, calendar_id } = credentials;
 const oAuth2Client = new google.auth.OAuth2(
@@ -42,21 +42,21 @@ module.exports.getAuthURL = async () => {
 
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: "offline",
-    scope: SCOPES
+    scope: SCOPES,
   });
 
   return {
     statusCode: 200,
     headers: {
-      'Access-Control-Allow-Origin': '*',
+      "Access-Control-Allow-Origin": "*",
     },
     body: JSON.stringify({
       authUrl: authUrl,
-    })
+    }),
   };
 };
 
-module.exports.getAccessToken = async (event) => {
+module.exports.getAccessToken = async event => {
   // from credentials obj (declared above) //////////
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
@@ -71,20 +71,33 @@ module.exports.getAccessToken = async (event) => {
     // callback in this case is an arrow function with the results as parameters: "err" and "token"
 
     oAuth2Client.getToken(code, (err, token) => {
-      if(err) reject(err);
+      if (err) reject(err);
       return resolve(token);
     });
   })
-  .catch((err) => {
-    console.log(err);
-    return {
-      statusCode: 500,
-      body: JSON.stringify(err)
-    };
-  });
-}
+    .then((token) => {
+      // respond with OAuth token
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(token),
+      };
+    })
+    .catch((err) => {
+      console.log(err);
+      return {
+        statusCode: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(err),
+      };
+    });
+};
 
-module.exports.getCalendarEvents = async (event) => {
+module.exports.getCalendarEvents = async event => {
   // from credentials obj (declared above) //////////
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
@@ -92,7 +105,7 @@ module.exports.getCalendarEvents = async (event) => {
     redirect_uris[0]
   );
   // decode authorization code extracted from the URL query //////////
-  const access_token = decodeURIComponent(`${event.pathParameters.token}`);
+  const access_token = decodeURIComponent(`${event.pathParameters.access_token}`);
   oAuth2Client.setCredentials({ access_token });
 
   return new Promise((resolve, reject) => {
@@ -113,20 +126,23 @@ module.exports.getCalendarEvents = async (event) => {
       }
     );
   })
-  .then((results) => {
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({ events: results.data.items })
-    }
-  })
-  .catch((err) => {
-    console.log(err);
-    return {
-      statusCode: 500,
-      body: JSON.stringify(err)
-    };
-  });
-}
+    .then( results => {
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({ events: results.data.items }),
+      };
+    })
+    .catch( err => {
+      console.log(err);
+      return {
+        statusCode: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(err),
+      };
+    });
+};
