@@ -27,14 +27,15 @@ Feature Scenarios:
 
 FEATURE 1: FILTER EVENTS BY CITY
 - Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities.
---- Given: the user is logged in
---- When: the page first loads
+--- Given: the user hasn't searched for any city
+--- When: the user opens the app
 --- Then: display all events from all cities
 
 - Scenario 2: User should see a list of suggestions when they search for a city.
---- Given: the user has started typing in the searchbar
---- When: "keyup"
---- Then: suggestion results populate
+--- Given: the main page is open
+--- When: the user starts typing in the city search bar
+--- Then: suggestion results populate (from search bar input)
+
 - Scenario 3: User can select a city from the suggested list.
 --- Given: there are suggestions visible
 --- When: the user clicks on a city
