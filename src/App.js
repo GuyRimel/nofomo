@@ -7,9 +7,7 @@ import EventList from './EventList';
 
 class App extends Component {
   state = {
-    events: [],
-    locations: [],
-    numberOfEvents: 10
+    events: []
   }
 
   render() {
