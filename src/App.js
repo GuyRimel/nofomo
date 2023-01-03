@@ -4,18 +4,48 @@ import './App.css';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
+// DATA / FUNCS //////////
+import { getEvents, extractLocations } from './api';
 
 class App extends Component {
   state = {
-    events: []
+    events: [],
+    locations: []
+  }
+
+  componentDidMount() {
+    this.mounted = true;
+    getEvents().then(events => {
+      if(this.mounted) this.setState({ events, locations: extractLocations(events) });
+    });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
+  updateEvents = (location) => {
+    getEvents().then(events => {
+      const locationEvents = (location === 'all') ?
+        events :
+        events.filter(event => event.location === location);
+      this.setState({
+        events: locationEvents
+      });
+    });
   }
 
   render() {
     return (
       <div className="App">
-        <CitySearch />
+        <h1>NOFOMO</h1>
+        <h3 className="subtitle text-white">No Fear Of Missing Out!</h3>
+        <CitySearch
+          locations={this.state.locations}
+          updateEvents={this.updateEvents}
+        />
         <NumberOfEvents />
-        <EventList />
+        <EventList events={this.state.events} />
       </div>
     );
   }

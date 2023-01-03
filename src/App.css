@@ -1,15 +1,52 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
-
-.App {
-  text-align: center;
-  padding: 2% 5%;
+:root {
+  /* change these top variables to change the theme! */
+  --primary-hue: 190;
+  --light-angle: 65deg;
+  --monochrome-alpha: 63%;
+  
+  --bg: hsl(var(--primary-hue), 50%, 30%);
+  --bg-dark: hsl(var(--primary-hue), 50%, 20%);
+  --heading: hsl(calc(var(--primary-hue) - 25), 100%, 85%);
+  --gray88: hsla(0, 0%, 88%, var(--monochrome-alpha));
+  --white-alpha: hsla(0, 0%, 100%, var(--monochrome-alpha));
+  --gray50: hsl(0, 0%, 50%);
 }
 
-.App * {
-  box-sizing: border-box;
+.App {
+  background: var(--bg) linear-gradient(var(--light-angle), var(--bg-dark), var(--bg));
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App h1:first-of-type {
+  color: var(--heading);
+  margin-bottom: 0.25em;
+  border-bottom: 1.1px solid var(--gray50);
 }
 
 ul {
   padding: 0;
   list-style: none;
 }
+
+.CitySearch,
+.NumberOfEvents,
+.Event {
+  width: 90vw;
+  background: var(--gray88) linear-gradient(var(--light-angle), var(--gray88), var(--white-alpha));
+  padding: 0 1.25em .5em;
+  margin-bottom: .35em;
+  border: 1px solid var(--gray50);
+  border-radius: .25em;
+  box-shadow: 0 .2em hsla(0, 0%, 0%, 40%);
+}
+
+button {
+  padding: .55em 1.25em;
+}
+
+.subtitle { margin-top: 0;}
+
+.text-white {color: white;}
