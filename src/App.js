@@ -10,32 +10,63 @@ import TopBar from './TopBar';
 import { getEvents, extractLocations } from './api';
 
 class App extends Component {
-  state = {
+  state ={
     events: [],
     locations: [],
+    seletedLocation: 'all',
+    eventCount: 32
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
-    getEvents().then(events => {
-      if(this.mounted) this.setState({ events, locations: extractLocations(events) });
+    getEvents().then((events) => {
+      if (this.mounted) {
+        events=events.slice(0,this.state.eventCount);
+        this.setState({ events, locations: extractLocations(events) });
+      }
     });
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(){
     this.mounted = false;
   }
 
-  updateEvents = (location) => {
-    getEvents().then(events => {
-      const locationEvents = (location === 'all') ?
+  updateEvents = (location, inputNumber) => {
+    const {eventCount, seletedLocation} = this.state;
+    if (location) {
+      getEvents().then((events) => {
+        const locationEvents = (location === 'all') ?
         events :
-        events.filter(event => event.location === location);
-      this.setState({
-        events: locationEvents
-      });
-    });
+        events.filter((event) => event.location === location);
+        const eventsToShow=locationEvents.slice(0, eventCount);
+        this.setState({
+        events: eventsToShow,
+        seletedLocation: location
+        });
+      });  
+    } else {
+      getEvents().then((events) => {
+        const locationEvents = (seletedLocation === 'all') ?
+        events :
+        events.filter((event) => event.location === seletedLocation);
+        const eventsToShow=locationEvents.slice(0, inputNumber);
+        this.setState({
+          events: eventsToShow,
+          eventCount: inputNumber
+        });
+      })
+    }
   }
+
+  getData = () => {
+    const {locations, events} = this.state;
+    const data = locations.map((location)=>{
+      const number = events.filter((event) => event.location === location).length;
+      const city = location.split(', ').shift();
+      return {city, number};
+    })
+    return data;
+  };
 
   render() {
     return (
@@ -45,7 +76,7 @@ class App extends Component {
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
-        <NumberOfEvents />
+        <NumberOfEvents updateEvents={this.updateEvents} />
         <EventList events={this.state.events} />
       </div>
     );
