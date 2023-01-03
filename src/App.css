@@ -6,24 +6,23 @@
   
   --bg: hsl(var(--primary-hue), 50%, 30%);
   --bg-dark: hsl(var(--primary-hue), 50%, 20%);
-  --heading: hsl(calc(var(--primary-hue) - 25), 100%, 85%);
+  --heading-text: hsl(calc(var(--primary-hue) - 45), 100%, 80%);
+  --heading-bg: hsla(calc(var(--primary-hue) - 15), 100%, 65%, 20%);
   --gray88: hsla(0, 0%, 88%, var(--monochrome-alpha));
   --white-alpha: hsla(0, 0%, 100%, var(--monochrome-alpha));
   --gray50: hsl(0, 0%, 50%);
+  background: linear-gradient(var(--light-angle), var(--bg-dark), var(--bg) 200%);
 }
 
 .App {
-  background: var(--bg) linear-gradient(var(--light-angle), var(--bg-dark), var(--bg));
   display: flex;
-  height: 100vh;
   flex-direction: column;
   align-items: center;
 }
 
-.App h1:first-of-type {
-  color: var(--heading);
-  margin-bottom: 0.25em;
-  border-bottom: 1.1px solid var(--gray50);
+h1 {
+  color: var(--heading-text);
+  margin: .25em 0;
 }
 
 ul {
@@ -31,17 +30,32 @@ ul {
   list-style: none;
 }
 
+input {
+  width: 120px;
+}
+
+.CitySearch,
+.NumberOfEvents,
+.EventList {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 5%;;
+}
+
 .CitySearch,
 .NumberOfEvents,
 .Event {
-  width: 90vw;
   background: var(--gray88) linear-gradient(var(--light-angle), var(--gray88), var(--white-alpha));
   padding: 0 1.25em .5em;
   margin-bottom: .35em;
   border: 1px solid var(--gray50);
   border-radius: .25em;
   box-shadow: 0 .2em hsla(0, 0%, 0%, 40%);
+  
 }
+
+.CitySearch {margin: 1.25em 0;}
 
 button {
   padding: .55em 1.25em;
@@ -50,3 +64,34 @@ button {
 .subtitle { margin-top: 0;}
 
 .text-white {color: white;}
+
+.ThemeChanger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.ThemeChanger button {
+  background-color: var(--gray88);
+}
+
+.ThemeChanger button:active {
+  background-color: var(--white-alpha);
+}
+
+.theme-number {
+  color: var(--white-alpha);
+}
+
+.TopBar {
+  text-align: center;
+  position: sticky;
+  width: 100%;
+  border-bottom: 1.1px solid var(--gray50);
+  background: var(--heading-bg);
+}

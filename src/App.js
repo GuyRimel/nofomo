@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
+import './nprogress.css';
 // COMPONENTS //////////
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
+import TopBar from './TopBar';
 // DATA / FUNCS //////////
 import { getEvents, extractLocations } from './api';
 
 class App extends Component {
   state = {
     events: [],
-    locations: []
+    locations: [],
   }
 
   componentDidMount() {
@@ -38,8 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>NOFOMO</h1>
-        <h3 className="subtitle text-white">No Fear Of Missing Out!</h3>
+        <TopBar />
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
