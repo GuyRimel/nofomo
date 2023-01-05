@@ -14,7 +14,10 @@
   background: linear-gradient(var(--light-angle), var(--bg-dark), var(--bg) 200%);
 }
 
+:root * { box-sizing: border-box; }
+
 .App {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,23 +42,34 @@ input {
 .EventList {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  margin: 0 5%;;
+}
+
+.NumberOfEvents {
+  background: var(--gray88);
 }
 
 .CitySearch,
-.NumberOfEvents,
+.NumberOfEvents {
+  padding-left: .75em
+}
+
+.EventList {
+  width: 100%;
+}
+
+.filter-box,
 .Event {
-  background: var(--gray88) linear-gradient(var(--light-angle), var(--gray88), var(--white-alpha));
-  padding: 0 1.25em .5em;
   margin-bottom: .35em;
   border: 1px solid var(--gray50);
   border-radius: .25em;
   box-shadow: 0 .2em hsla(0, 0%, 0%, 40%);
-  
 }
 
-.CitySearch {margin: 1.25em 0;}
+.Event {
+  margin: .25em .75em;
+  background: var(--white-alpha);
+  padding: .25em .85em;
+}
 
 button {
   padding: .55em 1.25em;
@@ -78,6 +92,7 @@ button {
 
 .ThemeChanger button {
   background-color: var(--gray88);
+  border-bottom-left-radius: 100%;
 }
 
 .ThemeChanger button:active {
@@ -94,4 +109,11 @@ button {
   width: 100%;
   border-bottom: 1.1px solid var(--gray50);
   background: var(--heading-bg);
+}
+
+.filter-box {
+  background: var(--heading-text);
+  display: grid;
+  width: inherit;
+  grid-template-columns: 60% auto;
 }

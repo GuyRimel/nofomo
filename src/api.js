@@ -2,7 +2,15 @@ import { mockData } from './mock-data';
 import axios from 'axios';
 import NProgress from 'nprogress';
 
-
+// pasted from "serviceWorkerRegistration.js"
+// used in getEvents()
+const isLocalhost = Boolean(
+  window.location.hostname === 'localhost' ||
+    // [::1] is the IPv6 localhost address.
+    window.location.hostname === '[::1]' ||
+    // 127.0.0.0/8 are considered localhost for IPv4.
+    window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
+);
 
 export const getAccessToken = async () => {
   const accessToken = localStorage.getItem('access_token');
@@ -37,7 +45,7 @@ export const checkToken = async (accessToken) => {
 
 export const getEvents = async () => {
   NProgress.start();
-  if (window.location.href.startsWith("http://localhost")) {
+  if (isLocalhost) {
     NProgress.done();
     return mockData;
   }
