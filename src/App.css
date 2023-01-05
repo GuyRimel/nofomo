@@ -44,22 +44,15 @@ input {
   flex-direction: column;
 }
 
-.NumberOfEvents {
-  background: var(--gray88);
-  border-bottom-left-radius: 100%;
-  padding-left: 1.75em;
-}
-
-.NumberOfEvents {
-  background: var(--gray88);
-  border-bottom-left-radius: 100%;
-  padding-left: 1.75em;
-}
-
 .CitySearch {
   border-left: 1px solid var(--bg);
   border-bottom-left-radius: 100%;
-  padding-left: 1.75em;
+  padding: 0 0 .75em 1.75em;
+}
+
+.NumberOfEvents {
+  background: var(--gray88);
+  border-bottom-left-radius: 100%;
 }
 
 .EventList {
