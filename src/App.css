@@ -46,11 +46,20 @@ input {
 
 .NumberOfEvents {
   background: var(--gray88);
+  border-bottom-left-radius: 100%;
+  padding-left: 1.75em;
 }
 
-.CitySearch,
 .NumberOfEvents {
-  padding-left: .75em
+  background: var(--gray88);
+  border-bottom-left-radius: 100%;
+  padding-left: 1.75em;
+}
+
+.CitySearch {
+  border-left: 1px solid var(--bg);
+  border-bottom-left-radius: 100%;
+  padding-left: 1.75em;
 }
 
 .EventList {
@@ -66,9 +75,17 @@ input {
 }
 
 .Event {
-  margin: .25em .75em;
   background: var(--white-alpha);
-  padding: .25em .85em;
+  margin: .25em .75em;
+  padding: .25em .85em .5em;
+  color: #1d1d1d;
+}
+
+.Event.expanded {
+  background: var(--heading-text);
+  color: black;
+  border: 1px solid white;
+  box-shadow: 0 .2em hsla(0, 0%, 100%, 40%);
 }
 
 button {
@@ -108,12 +125,16 @@ button {
   position: sticky;
   width: 100%;
   border-bottom: 1.1px solid var(--gray50);
-  background: var(--heading-bg);
+  background: var(--bg);
 }
 
 .filter-box {
   background: var(--heading-text);
   display: grid;
   width: inherit;
-  grid-template-columns: 60% auto;
+  grid-template-columns: 50% auto;
+}
+
+.suggestions {
+  background: linear-gradient(90deg, var(--white-alpha), transparent);
 }
