@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "f00f808ea4b18f2d9d84",
-    "url": "/nofomo/static/css/main.aa7aef69.chunk.css"
+    "revision": "b7ff7eca7f2429d1fe45",
+    "url": "/nofomo/static/css/main.b5db716e.chunk.css"
   },
   {
-    "revision": "f00f808ea4b18f2d9d84",
+    "revision": "b7ff7eca7f2429d1fe45",
     "url": "/nofomo/static/js/main.e415c94b.chunk.js"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/nofomo/static/js/3.69c2b8f0.chunk.js"
   },
   {
-    "revision": "c13ac977797fabb89618d542a87b7420",
+    "revision": "b8e3a6a508306137d661dfdf06f5d66d",
     "url": "/nofomo/index.html"
   }
 ];

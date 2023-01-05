@@ -1,5 +1,5 @@
 {
-  "main.css": "/nofomo/static/css/main.aa7aef69.chunk.css",
+  "main.css": "/nofomo/static/css/main.b5db716e.chunk.css",
   "main.js": "/nofomo/static/js/main.e415c94b.chunk.js",
   "main.js.map": "/nofomo/static/js/main.e415c94b.chunk.js.map",
   "runtime~main.js": "/nofomo/static/js/runtime~main.2412b964.js",
@@ -9,7 +9,7 @@
   "static/js/3.69c2b8f0.chunk.js": "/nofomo/static/js/3.69c2b8f0.chunk.js",
   "static/js/3.69c2b8f0.chunk.js.map": "/nofomo/static/js/3.69c2b8f0.chunk.js.map",
   "index.html": "/nofomo/index.html",
-  "precache-manifest.26afbc54c55e755bfb3926f8b444587b.js": "/nofomo/precache-manifest.26afbc54c55e755bfb3926f8b444587b.js",
+  "precache-manifest.6e9c15010f6bf22ad296163f2e424df6.js": "/nofomo/precache-manifest.6e9c15010f6bf22ad296163f2e424df6.js",
   "service-worker.js": "/nofomo/service-worker.js",
-  "static/css/main.aa7aef69.chunk.css.map": "/nofomo/static/css/main.aa7aef69.chunk.css.map"
+  "static/css/main.b5db716e.chunk.css.map": "/nofomo/static/css/main.b5db716e.chunk.css.map"
 }
