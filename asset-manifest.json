@@ -1,15 +1,16 @@
 {
-  "main.css": "/nofomo/static/css/main.b5db716e.chunk.css",
-  "main.js": "/nofomo/static/js/main.e415c94b.chunk.js",
-  "main.js.map": "/nofomo/static/js/main.e415c94b.chunk.js.map",
-  "runtime~main.js": "/nofomo/static/js/runtime~main.2412b964.js",
-  "runtime~main.js.map": "/nofomo/static/js/runtime~main.2412b964.js.map",
-  "static/js/2.0d59e57d.chunk.js": "/nofomo/static/js/2.0d59e57d.chunk.js",
-  "static/js/2.0d59e57d.chunk.js.map": "/nofomo/static/js/2.0d59e57d.chunk.js.map",
-  "static/js/3.69c2b8f0.chunk.js": "/nofomo/static/js/3.69c2b8f0.chunk.js",
-  "static/js/3.69c2b8f0.chunk.js.map": "/nofomo/static/js/3.69c2b8f0.chunk.js.map",
-  "index.html": "/nofomo/index.html",
-  "precache-manifest.6e9c15010f6bf22ad296163f2e424df6.js": "/nofomo/precache-manifest.6e9c15010f6bf22ad296163f2e424df6.js",
-  "service-worker.js": "/nofomo/service-worker.js",
-  "static/css/main.b5db716e.chunk.css.map": "/nofomo/static/css/main.b5db716e.chunk.css.map"
+  "files": {
+    "main.css": "/nofomo/static/css/main.b86c947a.css",
+    "main.js": "/nofomo/static/js/main.275465ea.js",
+    "static/js/787.05de1809.chunk.js": "/nofomo/static/js/787.05de1809.chunk.js",
+    "service-worker.js": "/nofomo/service-worker.js",
+    "index.html": "/nofomo/index.html",
+    "main.b86c947a.css.map": "/nofomo/static/css/main.b86c947a.css.map",
+    "main.275465ea.js.map": "/nofomo/static/js/main.275465ea.js.map",
+    "787.05de1809.chunk.js.map": "/nofomo/static/js/787.05de1809.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b86c947a.css",
+    "static/js/main.275465ea.js"
+  ]
 }
