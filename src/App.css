@@ -77,7 +77,6 @@ input {
 .Event.expanded {
   background: var(--heading-text);
   color: black;
-  border: 1px solid white;
   box-shadow: 0 .2em hsla(0, 0%, 100%, 40%);
 }
 

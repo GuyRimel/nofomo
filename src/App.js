@@ -27,9 +27,7 @@ class App extends Component {
     });
   }
 
-  componentWillUnmount(){
-    this.mounted = false;
-  }
+  componentWillUnmount(){ this.mounted = false; }
 
   updateEvents = (location, inputNumber) => {
     const {eventCount, seletedLocation} = this.state;
