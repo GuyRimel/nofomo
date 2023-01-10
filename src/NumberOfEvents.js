@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 
 class NumberOfEvents extends Component {
-
   state = { noe: 32 }
-
+  
   handleInputChanged = (event) => {
     const inputValue = event.target.value;
     this.props.updateEvents(null, inputValue);
     this.setState({
-      noe: inputValue,
+      noe: inputValue
     })
   }
-
+  
   render() {
     const { noe } = this.state;
     return (
@@ -29,7 +28,6 @@ class NumberOfEvents extends Component {
     </div>
     )
   }
-
 }
 
 export default NumberOfEvents;

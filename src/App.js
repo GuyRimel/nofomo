@@ -73,9 +73,12 @@ class App extends Component {
         <div className="filter-box">
           <CitySearch
             locations={this.state.locations}
+            updateEvents= {this.updateEvents}
+          />
+          <NumberOfEvents
+            eventCount={this.state.eventCount}
             updateEvents={this.updateEvents}
           />
-          <NumberOfEvents updateEvents={this.updateEvents} />
         </div>
         <EventList events={this.state.events} />
       </div>
