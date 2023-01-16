@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import * as atatus from 'atatus-spa';
+
+atatus.config('ae8608a6c2e14cdb9f39dbcb0c6104a3').install(); // unique (to this app) atatus monitoring
 
 ReactDOM.render(
   <React.StrictMode>
