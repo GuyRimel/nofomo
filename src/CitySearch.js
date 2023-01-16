@@ -65,7 +65,7 @@ class CitySearch extends Component {
             </li>
           ))}
           <li key="all" onClick={() => this.handleItemClicked("all")}>
-            <h4>See all cities</h4>
+            <h4>List events from all cities</h4>
           </li>
         </ul>
       </div>
