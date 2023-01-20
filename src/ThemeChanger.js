@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
 class ThemeChanger extends Component {
-  state = {
-      theme: 190
-    };
+  themeNumber = localStorage.getItem('theme') || 190;
+  
+  state = { theme: this.themeNumber };
+
+  componentDidMount = () => { this.updateTheme(); }
 
   themeUp = () => {
     let newTheme = this.state.theme + 8;
@@ -22,6 +24,7 @@ class ThemeChanger extends Component {
   }
   
   updateTheme () {
+    localStorage.setItem("theme", this.state.theme);
     document.documentElement.style.setProperty('--primary-hue', this.state.theme)
   }
 

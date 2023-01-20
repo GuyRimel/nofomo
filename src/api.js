@@ -12,6 +12,12 @@ const isLocalhost = Boolean(
     window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
 
+
+// config is the second arument of axios requests
+const config = {
+
+}
+
 export const getAccessToken = async () => {
   const accessToken = localStorage.getItem('access_token');
 
@@ -23,7 +29,7 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const results = await axios.get(
-        "https://fapaxthxpa.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
+        "https://fapaxthxpa.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url", config
       );
       const { authUrl } = results.data;
       return (window.location.href = authUrl);
@@ -60,7 +66,7 @@ export const getEvents = async () => {
   if (token) {
     removeQuery();
     const url = `https://fapaxthxpa.execute-api.us-east-1.amazonaws.com/dev/api/get-events/${token}`;
-    const result = await axios.get(url);
+    const result = await axios.get(url, config);
     if (result.data) {
       var locations = extractLocations(result.data.events);
       localStorage.setItem("lastEvents", JSON.stringify(result.data));
