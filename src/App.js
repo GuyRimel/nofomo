@@ -10,7 +10,7 @@ import TopBar from './TopBar';
 import { getEvents, extractLocations } from './api';
 
 class App extends Component {
-  state ={
+  state = {
     events: [],
     locations: [],
     seletedLocation: 'all',
