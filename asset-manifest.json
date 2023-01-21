@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/nofomo/static/css/main.b86c947a.css",
-    "main.js": "/nofomo/static/js/main.e106c659.js",
+    "main.css": "/nofomo/static/css/main.6107ae82.css",
+    "main.js": "/nofomo/static/js/main.3a470612.js",
     "static/js/787.05de1809.chunk.js": "/nofomo/static/js/787.05de1809.chunk.js",
     "service-worker.js": "/nofomo/service-worker.js",
     "index.html": "/nofomo/index.html",
-    "main.b86c947a.css.map": "/nofomo/static/css/main.b86c947a.css.map",
-    "main.e106c659.js.map": "/nofomo/static/js/main.e106c659.js.map",
+    "main.6107ae82.css.map": "/nofomo/static/css/main.6107ae82.css.map",
+    "main.3a470612.js.map": "/nofomo/static/js/main.3a470612.js.map",
     "787.05de1809.chunk.js.map": "/nofomo/static/js/787.05de1809.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b86c947a.css",
-    "static/js/main.e106c659.js"
+    "static/css/main.6107ae82.css",
+    "static/js/main.3a470612.js"
   ]
 }
