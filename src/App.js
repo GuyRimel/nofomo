@@ -6,23 +6,34 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
 import TopBar from './TopBar';
+import { InfoAlert } from './Alert';
 // DATA / FUNCS //////////
 import { getEvents, extractLocations } from './api';
+
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
     seletedLocation: 'all',
-    eventCount: 32
+    eventCount: 32,
+    // infoText: ''
   }
-
+  
+  networkStatus = () => {
+    this.setState({infoText: navigator.online ? 'online' : 'offline'})
+  };
+  
   async componentDidMount() {
     this.mounted = true;
+    window.addEventListener('online', this.networkStatus);
+    window.addEventListener('offline', this.networkStatus);
+    
     getEvents().then((events) => {
       if (this.mounted) {
         events=events.slice(0,this.state.eventCount);
         this.setState({ events, locations: extractLocations(events) });
+        this.networkStatus();
       }
     });
   }
@@ -56,19 +67,10 @@ class App extends Component {
     }
   }
 
-  getData = () => {
-    const {locations, events} = this.state;
-    const data = locations.map((location)=>{
-      const number = events.filter((event) => event.location === location).length;
-      const city = location.split(', ').shift();
-      return {city, number};
-    })
-    return data;
-  };
-
   render() {
     return (
       <div className="App">
+        <InfoAlert text={this.state.infoText} />
         <TopBar />
         <div className="filter-box">
           <CitySearch

@@ -163,3 +163,12 @@ input {
   padding: .25em 0 0;
   background: linear-gradient(90deg, var(--white-alpha), transparent);
 }
+
+.App > .Alert {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: #fff7;
+  padding: .25em;
+}
