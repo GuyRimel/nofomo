@@ -6,7 +6,6 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
 import TopBar from './TopBar';
-import { InfoAlert } from './Alert';
 // DATA / FUNCS //////////
 import WelcomeScreen from './WelcomeScreen';
 import { getEvents, extractLocations, checkToken, getAccessToken } from
@@ -24,10 +23,6 @@ class App extends Component {
     // infoText: ''
   }
   
-  networkStatus = () => {
-    this.setState({infoText: navigator.online ? 'online' : 'offline'})
-  };
-  
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
@@ -44,10 +39,6 @@ class App extends Component {
         }
       });
     }
-    
-    window.addEventListener('online', this.networkStatus);
-    window.addEventListener('offline', this.networkStatus);
-    this.networkStatus();
   }
 
   componentWillUnmount(){ this.mounted = false; }
@@ -84,7 +75,6 @@ class App extends Component {
 
     return (
       <div className="App">
-        <InfoAlert text={this.state.infoText} />
         <TopBar />
         <div className="filter-box">
           <CitySearch
