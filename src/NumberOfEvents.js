@@ -8,8 +8,8 @@ class NumberOfEvents extends Component {
     let inputValue = event.target.value;
     let errText;
 
-    // don't even allow negative numbers; come on now. loose comparison for "0" == 0
-    if(inputValue < 0 || inputValue == 0) inputValue = 0; 
+    // don't even allow negative numbers; come on now.
+    if(inputValue < 0 || inputValue === 0 || inputValue === "0") inputValue = 0;
     if(!inputValue) errText = '# of events is zero';
     else if(inputValue >= 50) {
       errText = 'The maximumum is 50.';
