@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/nofomo/static/css/main.72358a4a.css",
-    "main.js": "/nofomo/static/js/main.c388c49b.js",
+    "main.css": "/nofomo/static/css/main.34b82bc2.css",
+    "main.js": "/nofomo/static/js/main.db1200f1.js",
     "service-worker.js": "/nofomo/service-worker.js",
     "index.html": "/nofomo/index.html",
-    "main.72358a4a.css.map": "/nofomo/static/css/main.72358a4a.css.map",
-    "main.c388c49b.js.map": "/nofomo/static/js/main.c388c49b.js.map"
+    "main.34b82bc2.css.map": "/nofomo/static/css/main.34b82bc2.css.map",
+    "main.db1200f1.js.map": "/nofomo/static/js/main.db1200f1.js.map"
   },
   "entrypoints": [
-    "static/css/main.72358a4a.css",
-    "static/js/main.c388c49b.js"
+    "static/css/main.34b82bc2.css",
+    "static/js/main.db1200f1.js"
   ]
 }
