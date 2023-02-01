@@ -10,7 +10,7 @@ import TopBar from './TopBar';
 import WelcomeScreen from './WelcomeScreen';
 import { getEvents, extractLocations, checkToken, getAccessToken } from
 './api';
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { ResponsiveContainer, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
 class App extends Component {
   state = {
@@ -83,7 +83,6 @@ class App extends Component {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
 
     const { locations, eventCount, events, showWelcomeScreen } = this.state;
-    let data = this.getData();
     return (
       <div className="App">
         <TopBar />
@@ -99,24 +98,26 @@ class App extends Component {
         </div>
         <h4>Events by City</h4>
 
-        <ScatterChart
-          width={400}
-          height={400}
-          margin={{
-            top: 20, right: 20, bottom: 20, left: 20,
-          }}
-        >
-          <CartesianGrid />
-          <XAxis type="category" dataKey="city" name="city" />
-          <YAxis type="number" dataKey="number" name="number of events" unit="kg" />
-          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter name="A school" data={data} fill="#8884d8" />
-        </ScatterChart>
+        <ResponsiveContainer height={400} >
+          <ScatterChart
+            margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+          >
+            <CartesianGrid />
+            <XAxis type="category" dataKey="city" name="city" />
+            <YAxis
+              allowDecimals={false}
+              type="number"
+              dataKey="number"
+              name="number of events"
+            />
+            <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+            <Scatter data={this.getData()} fill="#8884d8" />
+          </ScatterChart>
+        </ResponsiveContainer>
 
         <EventList events={events} />
         <WelcomeScreen
           showWelcomeScreen={showWelcomeScreen}
-          // showWelcomeScreen={false}
           getAccessToken={() => { getAccessToken() }}
         />
       </div>
