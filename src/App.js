@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ResponsiveContainer, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import './App.css';
 import './nprogress.css';
 // COMPONENTS //////////
@@ -6,11 +7,11 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
 import TopBar from './TopBar';
-// DATA / FUNCS //////////
 import WelcomeScreen from './WelcomeScreen';
+import EventGenre from './EventGenre';
+// DATA / FUNCS //////////
 import { getEvents, extractLocations, checkToken, getAccessToken } from
 './api';
-import { ResponsiveContainer, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
 class App extends Component {
   state = {
@@ -103,23 +104,27 @@ class App extends Component {
         </div>
         <h4 className="text-center text-splash">Events by City</h4>
 
-        <ResponsiveContainer height={400} >
-          <ScatterChart
-            margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
-          >
-            <CartesianGrid />
-            <XAxis type="category" dataKey="city" name="city" stroke='white' />
-            <YAxis
-              stroke='white'
-              allowDecimals={false}
-              type="number"
-              dataKey="number"
-              name="number of events"
-            />
-            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-            <Scatter data={this.getData()} fill={`hsl(${hue}, 100%, 90%)`} />
-          </ScatterChart>
-        </ResponsiveContainer>
+        <div className='data-vis-wrapper'>
+          <EventGenre events={events} />
+          <ResponsiveContainer height={400} >
+            <ScatterChart
+              margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+            >
+              <CartesianGrid />
+              <XAxis type="category" dataKey="city" name="city" stroke='white' />
+              <YAxis
+                stroke='white'
+                allowDecimals={false}
+                type="number"
+                dataKey="number"
+                name="number of events"
+              />
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Scatter data={this.getData()} fill={`hsl(${hue}, 100%, 90%)`} />
+            </ScatterChart>
+          </ResponsiveContainer>
+        </div>
+
 
         <EventList events={events} />
         <WelcomeScreen
