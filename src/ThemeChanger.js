@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
 class ThemeChanger extends Component {
-  state = {
-      theme: 190
-    };
+  state = { theme: 190 };
 
   themeUp = () => {
     let newTheme = this.state.theme + 8;

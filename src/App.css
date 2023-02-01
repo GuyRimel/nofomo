@@ -24,7 +24,7 @@
   /* align-items: center; */
 }
 
-h1 {
+h1, h2, h3, h4 {
   color: var(--heading-text);
   margin: .25em 0;
 }
@@ -175,3 +175,5 @@ input {
 }
 
 .display-none { display: none !important; }
+
+.text-center { text-align: center; }

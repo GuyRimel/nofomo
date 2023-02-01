@@ -82,6 +82,9 @@ class App extends Component {
   render() {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
 
+    // --primary-hue is defined in App.css and utilized in ThemeChanger
+    let hue = document.documentElement.style.getProperty('--primary-hue');
+
     const { locations, eventCount, events, showWelcomeScreen } = this.state;
     return (
       <div className="App">
@@ -96,13 +99,13 @@ class App extends Component {
             updateEvents={this.updateEvents}
           />
         </div>
-        <h4>Events by City</h4>
+        <h4 className="text-center">Events by City</h4>
 
         <ResponsiveContainer height={400} >
           <ScatterChart
             margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
           >
-            <CartesianGrid />
+            <CartesianGrid strokeDasharray="3 3" />
             <XAxis type="category" dataKey="city" name="city" />
             <YAxis
               allowDecimals={false}
@@ -110,8 +113,8 @@ class App extends Component {
               dataKey="number"
               name="number of events"
             />
-            <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-            <Scatter data={this.getData()} fill="#8884d8" />
+            <Tooltip />
+            <Scatter data={this.getData()} fill={`hsl(${hue}, 100%, 80%)`} />
           </ScatterChart>
         </ResponsiveContainer>
 
