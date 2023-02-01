@@ -3,9 +3,9 @@ import "./WelcomeScreen.css";
 function WelcomeScreen(props) {
   return props.showWelcomeScreen ? (
     <div className="WelcomeScreen">
-      <h1>Welcome to the Meet app</h1>
+      <h1>Welcome to the Nofomo app</h1>
       <h4>
-        Log in to see upcoming events around the world for full-stack developers
+        Log in to see upcoming events around the world for full-stack developers and finally attain - no fear of missing out.
       </h4>
       <div className="button_cont" align="center">
         <div className="google-btn">
