@@ -82,11 +82,10 @@ class App extends Component {
 
   render() {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
-
+    
     // --primary-hue is defined in App.css and utilized in ThemeChanger
     let hue = getComputedStyle(document.documentElement)
-      .getPropertyValue('--primary-hue');
-    console.log(hue);
+    .getPropertyValue('--primary-hue');
 
     const { locations, eventCount, events, showWelcomeScreen } = this.state;
     return (
@@ -105,8 +104,8 @@ class App extends Component {
         <h4 className="text-center text-splash">Events by City</h4>
 
         <div className='data-vis-wrapper'>
-          <EventGenre events={events} />
           <ResponsiveContainer height={400} >
+            <EventGenre events={events} />
             <ScatterChart
               margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
             >

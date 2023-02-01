@@ -6,6 +6,9 @@ import {
 const EventGenre = ({ events }) => {
   const [data, setData] = useState([]);
 
+  // --primary-hue is defined in App.css and utilized in ThemeChanger
+  let hue = getComputedStyle(document.documentElement)
+  .getPropertyValue('--primary-hue');
 
   useEffect(() => { 
     const getData = () => {
@@ -21,23 +24,23 @@ const EventGenre = ({ events }) => {
     setData(() => getData());}, [events]);
 
 
-
+    
   return (
     <ResponsiveContainer className="pieChart" height={400}>
       <PieChart width={400} height={400}>
         <Pie
+        stroke="#fff"
         data={data}
         cx={200}
         cy={200}
         labelLine={false}
         outerRadius={80}
-        fill="#8884d8"
+        fill={`hsl(${hue}, 100%, 66%)`}
         dataKey="value"
         label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
         >
         </Pie>
       </PieChart>
-
     </ResponsiveContainer>
   );
 }
