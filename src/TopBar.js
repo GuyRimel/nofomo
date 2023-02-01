@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { InfoAlert } from './Alert';
-import ThemeChanger from "./ThemeChanger";
+import { ThemeChangerUp } from "./ThemeChanger";
 
 class TopBar extends Component {
   state = { infoText: ''}
@@ -18,10 +18,14 @@ class TopBar extends Component {
   render() {
     return (
       <div className="TopBar">
-        <InfoAlert text={this.state.infoText} />
-        <h1>NOFOMO</h1>
+        <div className="utilities">
+          <InfoAlert text={this.state.infoText} />
+        </div>
+        <div className="title">
+          <h1>NOFOMO&nbsp;</h1>
+          <ThemeChangerUp />
+        </div>
         <h3 className="subtitle text-white">No Fear Of Missing Out!</h3>
-        <ThemeChanger />
       </div>
     );
   }

@@ -83,7 +83,8 @@ class App extends Component {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
 
     // --primary-hue is defined in App.css and utilized in ThemeChanger
-    let hue = document.documentElement.style.getProperty('--primary-hue');
+    let hue = document.documentElement.style.getPropertyValue('--primary-hue');
+    console.log(hue);
 
     const { locations, eventCount, events, showWelcomeScreen } = this.state;
     return (
@@ -99,21 +100,22 @@ class App extends Component {
             updateEvents={this.updateEvents}
           />
         </div>
-        <h4 className="text-center">Events by City</h4>
+        <h4 className="text-center text-splash">Events by City</h4>
 
         <ResponsiveContainer height={400} >
           <ScatterChart
             margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
           >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis type="category" dataKey="city" name="city" />
+            <CartesianGrid />
+            <XAxis type="category" dataKey="city" name="city" stroke='white' />
             <YAxis
+              stroke='white'
               allowDecimals={false}
               type="number"
               dataKey="number"
               name="number of events"
             />
-            <Tooltip />
+            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
             <Scatter data={this.getData()} fill={`hsl(${hue}, 100%, 80%)`} />
           </ScatterChart>
         </ResponsiveContainer>
@@ -121,6 +123,7 @@ class App extends Component {
         <EventList events={events} />
         <WelcomeScreen
           showWelcomeScreen={showWelcomeScreen}
+          // showWelcomeScreen={false}
           getAccessToken={() => { getAccessToken() }}
         />
       </div>
