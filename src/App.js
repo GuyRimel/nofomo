@@ -179,7 +179,7 @@ class App extends Component {
 
         <EventList events={events} />
         <WelcomeScreen
-          showWelcomeScreen={showWelcomeScreen}
+          showWelcomeScreen={false}
           getAccessToken={() => {
             getAccessToken();
           }}
