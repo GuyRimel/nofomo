@@ -171,7 +171,7 @@ class App extends Component {
                 dataKey="number"
                 name="number of events"
               />
-              <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+              <Tooltip cursor={{ strokeDasharray: "3 3" }} label="" />
               <Scatter data={this.getData()} fill="hsl(190, 100%, 70%)" />
             </ScatterChart>
           </ResponsiveContainer>
