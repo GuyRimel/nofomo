@@ -82,10 +82,6 @@ class App extends Component {
 
   render() {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
-    
-    // --primary-hue is defined in App.css and utilized in ThemeChanger
-    let hue = getComputedStyle(document.documentElement)
-    .getPropertyValue('--primary-hue');
 
     const { locations, eventCount, events, showWelcomeScreen } = this.state;
     return (
@@ -119,7 +115,7 @@ class App extends Component {
                 name="number of events"
               />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Scatter data={this.getData()} fill={`hsl(${hue}, 100%, 90%)`} />
+              <Scatter data={this.getData()} fill={`hsl(190, 100%, 90%)`} />
             </ScatterChart>
           </ResponsiveContainer>
         </div>

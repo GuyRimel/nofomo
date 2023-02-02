@@ -6,10 +6,6 @@ import {
 const EventGenre = ({ events }) => {
   const [data, setData] = useState([]);
 
-  // --primary-hue is defined in App.css and utilized in ThemeChanger
-  let hue = getComputedStyle(document.documentElement)
-  .getPropertyValue('--primary-hue');
-
   useEffect(() => { 
     const getData = () => {
 
@@ -35,7 +31,7 @@ const EventGenre = ({ events }) => {
         cy={200}
         labelLine={false}
         outerRadius={80}
-        fill={`hsl(${hue}, 100%, 66%)`}
+        fill={`hsl(190, 100%, 66%)`}
         dataKey="value"
         label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
         >
