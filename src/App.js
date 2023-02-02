@@ -136,15 +136,15 @@ class App extends Component {
                 name="number of events"
               />
               <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-              <Scatter data={this.getData()} fill="hsl(190, 100%, 90%)" />
+              <Scatter data={this.getData()} fill="hsl(190, 100%, 80%)" />
             </ScatterChart>
           </ResponsiveContainer>
         </figure>
 
         <EventList events={events} />
         <WelcomeScreen
-          showWelcomeScreen={showWelcomeScreen}
-          // showWelcomeScreen={false}
+          // showWelcomeScreen={showWelcomeScreen}
+          showWelcomeScreen={false}
           getAccessToken={() => {
             getAccessToken();
           }}
