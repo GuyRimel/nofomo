@@ -27,7 +27,7 @@ const EventGenre = ({ events }) => {
           cx={200}
           cy={200}
           labelLine={false}
-          outerRadius={190}
+          outerRadius={175}
           fill="hsl(190, 100%, 80%)"
           dataKey="value"
           label={({ name, percent }) =>
