@@ -35,6 +35,30 @@ class App extends Component {
     infoText: ''
   };
 
+  showPie() {
+    const pieButton = document.querySelector('.pie-button');
+    const scatterButton = document.querySelector('.scatter-button');
+    const pieView = document.querySelector('.pie-chart-view');
+    const scatterView = document.querySelector('.scatter-chart-view');
+
+    pieButton.classList.add('chart-selected');
+    pieView.classList.remove('display-none');
+    scatterButton.classList.remove('chart-selected');
+    scatterView.classList.add('display-none');
+  }
+  
+  showScatter() {
+    const pieButton = document.querySelector('.pie-button');
+    const scatterButton = document.querySelector('.scatter-button');
+    const pieView = document.querySelector('.pie-chart-view');
+    const scatterView = document.querySelector('.scatter-chart-view');
+
+    scatterButton.classList.add('chart-selected');
+    scatterView.classList.remove('display-none');
+    pieButton.classList.remove('chart-selected');
+    pieView.classList.add('display-none');
+  }
+
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem("access_token");
@@ -113,10 +137,22 @@ class App extends Component {
             updateEvents={this.updateEvents}
           />
         </div>
-        <h4 className="text-center text-splash">Events by City</h4>
 
-        <figure className="data-vis-wrapper">
+        <div className="chart-selector">
+          <h4
+            className="text-center text-splash pie-button"
+            onClick={this.showPie}>Events by Topic
+          </h4>
+          <h4
+            className="text-center text-splash scatter-button chart-selected"
+            onClick={this.showScatter}>Events by City
+          </h4>
+        </div>
+        <figure className="data-vis-wrapper pie-chart-view display-none">
           <EventGenre events={events} />
+        </figure>
+
+        <figure className="data-vis-wrapper scatter-chart-view">
           <ResponsiveContainer height={400}>
             <ScatterChart
               margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
@@ -136,15 +172,15 @@ class App extends Component {
                 name="number of events"
               />
               <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-              <Scatter data={this.getData()} fill="hsl(190, 100%, 80%)" />
+              <Scatter data={this.getData()} fill="hsl(190, 100%, 70%)" />
             </ScatterChart>
           </ResponsiveContainer>
         </figure>
 
         <EventList events={events} />
         <WelcomeScreen
-          showWelcomeScreen={showWelcomeScreen}
-          // showWelcomeScreen={false}
+          // showWelcomeScreen={showWelcomeScreen}
+          showWelcomeScreen={false}
           getAccessToken={() => {
             getAccessToken();
           }}
