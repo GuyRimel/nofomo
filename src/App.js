@@ -18,7 +18,12 @@ import TopBar from "./TopBar";
 import WelcomeScreen from "./WelcomeScreen";
 import EventGenre from "./EventGenre";
 // DATA / FUNCS //////////
-import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
+import {
+  getEvents,
+  extractLocations,
+  checkToken,
+  getAccessToken
+} from "./api";
 
 class App extends Component {
   state = {
@@ -27,7 +32,7 @@ class App extends Component {
     seletedLocation: "all",
     eventCount: 32,
     showWelcomeScreen: undefined,
-    // infoText: ''
+    infoText: ''
   };
 
   async componentDidMount() {
@@ -110,10 +115,12 @@ class App extends Component {
         </div>
         <h4 className="text-center text-splash">Events by City</h4>
 
-        <div className="data-vis-wrapper">
+        <figure className="data-vis-wrapper">
           <EventGenre events={events} />
           <ResponsiveContainer height={400}>
-            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            <ScatterChart
+              margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+            >
               <CartesianGrid />
               <XAxis
                 type="category"
@@ -132,12 +139,12 @@ class App extends Component {
               <Scatter data={this.getData()} fill="hsl(190, 100%, 90%)" />
             </ScatterChart>
           </ResponsiveContainer>
-        </div>
+        </figure>
 
         <EventList events={events} />
         <WelcomeScreen
-          // showWelcomeScreen={showWelcomeScreen}
-          showWelcomeScreen={false}
+          showWelcomeScreen={showWelcomeScreen}
+          // showWelcomeScreen={false}
           getAccessToken={() => {
             getAccessToken();
           }}
