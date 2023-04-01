@@ -7,10 +7,13 @@
     <img src="img/RLogoNoName.ico" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Date Night Movies (React)</h3>
+  <h3 align="center">Nofomo</h3>
 
   <p align="center">
-    Find a movie you'll <em>both</em> enjoy on date night! Date Night Movies is the client side web application built with React. Create an account, securely login, view movie data, and save movies to your favorites in this colorful light-weight knock-off of the uber-popular <a href="https://www.imdb.com/" target="_blank">IMDb website</a>.
+    "FOMO" is the "Fear of Missing Out". Nofomo is an Progressive Web App (PWA offering offline usability) created with React that utilizes serverless functions through Amazon Web Services (AWS) and the Google Calendar API. The app shows information about upcoming events by city. Never miss out on a concert, or teaching seminar, or lame t-shirt giveaway in a city near you with this colorful light-weight React app.
+  </p>
+  <p>
+    Currently, Nofomo only displays events from the CareerFoundry (online programming academy) Google calendar.
   </p>
 </div>
 <br />
@@ -54,17 +57,19 @@
   style="height: 16rem; width: auto;"
 />
 
-[Date Night Movies (React) Repository](https://github.com/GuyRimel/Date-Night-Movies-React)
+[Nofomo Repository](https://github.com/GuyRimel/nofomo)
 
 <!-- KEY FEATURES -->
 
 ### Key Features
 
-1. Create a user account and login with a username and password with JWT Authentication, password hashing.
+1. OAuth login with an existing Google account
 
-2. Search for and view information about movies, genres, and directors.
+2. Serverless functions with Amazon Web Services
 
-3. Save movies to your favorites for later reference.
+3. Offline usablitiy as a Progressive Web App
+
+4. Data visualization with animated event graphs
 
 <!-- BUILT WITH -->
 
@@ -72,24 +77,20 @@
 
 - HTML, CSS, JavaScript
 
-- JSX, SCSS
-
 - React
 
-- Parcel (compiler)
+- Amazon Web Services serverless functions
+
+- Google Calendar API
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- DEPLOYMENTS -->
 ## Deployments
 
-Date Night Movies (React) is currently live and hosted with Netlify. This app uses a separately deployed RESTful API to handle routing and endpoints. There are currently two Date Night Movies frontend deployments, one developed with React (this one) and one developed with Angular.
+Nofomo is currently deployed with GitHub Pages.
 
-- [Date Night Movies (API)](https://datenightmovies.herokuapp.com/)
-
-- [Date Night Movies React Frontend](https://datenightmovies.netlify.app/)
-
-- [Date Night Movies Angular Frontend](https://guyrimel.github.io/Date-Night-Movies-Angular/)
+- [Nofomo](https://guyrimel.github.io/nofomo/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,9 +98,9 @@ Date Night Movies (React) is currently live and hosted with Netlify. This app us
 
 ## Dev Notes
 
-- The Date Night Movies (API) uses JWT Tokens for login authorization. Tokens are stored in localStorage (not a cookie!) and expire in 7 days.
+- A theme color value is stored in localStorage. Since this is purely functional, not utilizing user sensitive info and not a cookie, no cookies permissions prompt was necessary.
 
-- For details about API endpoints, visit the <a href="https://datenightmovies.herokuapp.com/documentation" target="_blank">documentation</a>.
+- [Nofomo Features, Scenarios, and User Stories]('Features_and_Stories')
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -125,7 +126,7 @@ Date Night Movies (React) is currently live and hosted with Netlify. This app us
 1. In the terminal, navigate to the desired directory and clone the repo.
 
    ```sh
-   git clone https://github.com/GuyRimel/Date-Night-Movies-React.git
+   git clone https://github.com/GuyRimel/nofomo.git
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -156,11 +157,13 @@ The app will then automatically open in a new browser window.
 
 ## UX Notes
 
-- First, create a new account with your desired "Username", "Password", "Email", and "Birthday" (Birthday optional).
+- No account creation necessary! Login with an existing Google account.
 
-- Upon successful account creation, login with your credentials.
+- Filter events by city in the navbar
 
-- Favorite movies by clicking the movie card's "heart icon". View your favorite movies in your profile.
+- Toggle between the "Events by Topic" and "Events by City" animated graphs.
+
+- *OBVIOUS SECRET* 🤐 Change the app color theme by clicking the "up arrow" button to the right of the main top title.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
